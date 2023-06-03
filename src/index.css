@@ -1,11 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Inter&family=Lato:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500&family=Open+Sans&family=Poppins:ital,wght@0,400;0,500;1,500&family=Work+Sans&display=swap');
 
 * {
     font-family: 'Poppins', sans-serif;
 }
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
