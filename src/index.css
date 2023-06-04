@@ -4,6 +4,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.btn {
+    margin-top: auto;
+    width: 90%;
+    color: white
+}
+
 
 @tailwind base;
 @tailwind components;

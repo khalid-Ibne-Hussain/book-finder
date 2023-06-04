@@ -8,12 +8,14 @@ import {
 } from "react-router-dom";
 import Main from './components/Main.jsx';
 import Modal from './components/Modal.jsx';
+import ErrorPage from './components/ErrorPage.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       // {
       //   path: '/book/:id',

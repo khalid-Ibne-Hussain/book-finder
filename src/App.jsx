@@ -5,7 +5,9 @@ function App() {
 
   return (
     <>
-      <Main></Main>
+      {/* <div className='bg-slate-500'> */}
+      {/* <Main></Main> */}
+      {/* </div> */}
     </>
   )
 }
