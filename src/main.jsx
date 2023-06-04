@@ -16,19 +16,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <Main />,
     errorElement: <ErrorPage></ErrorPage>,
-    children: [
-      // {
-      //   path: '/book/:id',
-      //   element: <Modal></Modal>,
-      //   loader: ({ params }) => fetch(`https://www.googleapis.com/books/v1/volumes/${params}`),
-      // },
-      {
-        path: '/book',
-        element: <Modal></Modal>,
-        // loader: ({ params }) => fetch(`https://www.googleapis.com/books/v1/volumes/${params}`),
-      },
-    ]
-
   },
 ]);
 

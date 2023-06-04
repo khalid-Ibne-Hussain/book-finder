@@ -3,7 +3,6 @@ import { FaSearch } from 'react-icons/fa';
 import Card from './Card';
 import axios from 'axios';
 import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
 
 const api_key = import.meta.env.API_KEY;
 
@@ -11,14 +10,27 @@ const Main = () => {
     const [search, setSearch] = useState("");
     const [books, setBooks] = useState([]);
 
+    // ------------------
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(8);
+    // --------------------
+
+
     const searchBook = event => {
         // event.preventDefault();
         if (event.key === "Enter") {
-            axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&key=AIzaSyAX5rVHlQRdHEY1eEQ6-3Nf2DRJuhiMYBE' + '&maxResults=30')
+            axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&key=AIzaSyAX5rVHlQRdHEY1eEQ6-3Nf2DRJuhiMYBE' + '&maxResults=40')
                 .then(res => setBooks(res.data.items))
                 .catch(error => console.log(error))
         }
     }
+
+    //----------------------
+    const lastPostIndex = currentPage * postsPerPage;
+    const firstPostIndex = lastPostIndex - postsPerPage;
+    const currentPosts = books.slice(firstPostIndex, lastPostIndex);
+    //----------------------
+
 
     return (
         <div className='bg-slate-200'>
@@ -31,13 +43,10 @@ const Main = () => {
                         <div className=' flex-col justify-center '>
 
                             <div className="group w-72 md:w-80 lg:w-96">
-                                {/* <label htmlFor="8" className="inline-block w-full text-sm font-medium text-gray-500 transition-all duration-200 ease-in-out group-focus-within:text-blue-400">Find Your Book</label> */}
+
 
                                 <div className="relative flex items-center">
-                                    {/* <form onSubmit={searchBook}> */}
-                                    {/* onChange={e => setSearch(e.target.value)} 
-                                    onKeyDown={searchBook}
-                                    */}
+
                                     <input value={search} onChange={e => setSearch(e.target.value)}
                                         onKeyDown={searchBook} id="8" type="text" className="peer relative h-10 w-full rounded-md bg-gray-50 pl-4 pr-20 font-thin outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-white focus:drop-shadow-lg shadow-2xl border-b-2" placeholder='type...' />
                                     <div className="absolute right-0 h-5 w-10 rounded-r-md "><span className='flex justify-center'><FaSearch className='text-xl font-semibold text-slate-500'></FaSearch></span></div>
@@ -47,14 +56,15 @@ const Main = () => {
                         </div>
                     </div>
                 </div>
-                {/* <Outlet> */}
+
 
                 <div>
                     {
-                        <Card books={books} />
+                        // <Card books={books} />
+                        <Card currentPosts={currentPosts} postsPerPage={postsPerPage} books={books} setCurrentPage={setCurrentPage} currentPage={currentPage} />
                     }
                 </div>
-                {/* </Outlet> */}
+
             </div>
         </div>
     );
