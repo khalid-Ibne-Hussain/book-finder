@@ -33,7 +33,7 @@ const Main = () => {
 
 
     return (
-        <div className='bg-slate-200'>
+        <div className='bg-[#f5f5f5]'>
             <div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 '>
                 <div className='  py-20'>
                     <div className='flex flex-col gap-5  items-center'>

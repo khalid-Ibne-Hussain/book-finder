@@ -1,8 +1,7 @@
 import React from 'react';
 import './Modal.css'
-import noImg from '../../public/not-found.jpg'
-import { useLoaderData } from 'react-router-dom';
-import { FaCloudShowersHeavy, FaExternalLinkAlt, FaWindowClose } from 'react-icons/fa';
+import noImg from '../../src/not-found.jpg';
+import { FaExternalLinkAlt, FaWindowClose } from 'react-icons/fa';
 
 const Modal = ({ show, bookDetail, onClose }) => {
 

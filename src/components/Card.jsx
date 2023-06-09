@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import BookCard from './BookCard';
 import Modal from './Modal';
-import noImg from '../../public/not-found.jpg'
+import noImg from '../../src/not-found.jpg'
 import Pagination from './Pagination';
 
 const Card = ({ currentPosts, books, postsPerPage, setCurrentPage, currentPage }) => {
